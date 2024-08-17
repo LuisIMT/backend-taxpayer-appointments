@@ -14,5 +14,8 @@ def main():
                                         office_location = ( settings[ 'office' ][ 'latitude' ], settings[ 'office' ][ 'longitude' ] )
                                         )
     print ( list_client )
+    json_data = list_client.to_json(orient='records')
+    with open( os.path.join( os.path.dirname( __file__ ), "client_list.json" ) , "w" ) as outfile:
+            json.dump( json_data, outfile, indent=4 )
 if __name__ == '__main__':
     main()
